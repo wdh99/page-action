@@ -9,12 +9,24 @@ jobs:
     name: Deploy docs to GitHub Pages
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
+      - name: Checkout private repo
         uses: actions/checkout@v2
+        
       - name: Build
         uses: Tiryoh/actions-mkdocs@v0
         with:
           mkdocs_version: 'latest' # option
+          
+      - name: Checkout public repo
+        uses: actions/checkout@v2
+        with:
+          repository: wdh99/wdh99.githu.io
+          ref: gh-pages
+          path: site
+        
+      - name: Copy To Public Repo
+        run: cp -r page-action/site/* wdh99.githu.io/site
+        
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
