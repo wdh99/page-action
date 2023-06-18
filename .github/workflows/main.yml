@@ -20,7 +20,7 @@ jobs:
       - name: Checkout public repo
         uses: actions/checkout@v2
         with:
-          repository: wdh99/wdh99.githu.io
+          repository: wdh99/wdh99.github.io
           ref: gh-pages
           path: site
         
