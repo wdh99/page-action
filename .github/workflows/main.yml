@@ -23,6 +23,7 @@ jobs:
           repository: wdh99/wdh99.github.io
           ref: gh-pages
           path: site
+          fetch-depth: 1
         
       - name: Copy To Public Repo
         run: cp -r page-action/site/* wdh99.githu.io/site
