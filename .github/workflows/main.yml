@@ -16,18 +16,6 @@ jobs:
         uses: Tiryoh/actions-mkdocs@v0
         with:
           mkdocs_version: 'latest' # option
-          
-      - name: Checkout public repo
-        uses: actions/checkout@v2
-        with:
-          repository: wdh99/wdh99.github.io
-          ref: gh-pages
-          path: site
-          fetch-depth: 1
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-        
-      - name: Copy To Public Repo
-        run: cp -r page-action/site/* wdh99.githu.io/site
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
